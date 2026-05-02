@@ -1,0 +1,96 @@
+general {
+    colors = true # включение/выключение поддержки цветов true/false
+    interval = 1 # интервал обновления строки статуса, в секундах
+    output_format = "i3bar" # формат вывода, устанавливаем i3bar (JSON)
+}
+
+# порядок вывода модулей
+order += "run_watch openvpn"
+order += "run_watch openconnect"
+order += "volume master"
+#order += "wireless _first_"
+#order += "battery all"
+order += "disk /"
+order += "disk /mnt/Games/"
+order += "memory"
+order += "cpu_usage"
+#order += "cpu_temperature 0"
+order += "tztime local"
+
+# управление громкостью звука
+volume master {
+    format = "[ %volume]" # шаблон громкости в активном состоянии
+    format_muted = "[ %volume]" # шаблон громкости в состоянии muted (без звука)
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
+
+# отслеживаемый накопитель
+disk "/" {
+    # доступные переменные:
+    # %used, %percentage_used - занятое пространство
+    # %free, %percentage_free - свободное пространство
+    # %avail, %percentage_avail - доступное пространство
+    # %total - всего
+    format = "[ %avail]"
+
+    # будет окрашен в "color_bad" (по умолчанию красный)
+    # при достижении нижнего порога менее 10GB доступного пространства
+    low_threshold = "10"
+    threshold_type = "gbytes_avail"
+    format_below_threshold = " Warning: %avail"
+}
+
+# отслеживаемый накопитель 2
+disk "/mnt/Games/" {
+	# доступные переменные:
+	    # %used, %percentage_used - занятое пространство
+	    # %free, %percentage_free - свободное пространство
+	    # %avail, %percentage_avail - доступное пространство
+	    # %total - всего
+	    format = "[ %avail]"
+	
+	    # будет окрашен в "color_bad" (по умолчанию красный)
+	    # при достижении нижнего порога менее 10GB доступного пространства
+	    low_threshold = "10"
+	    threshold_type = "gbytes_avail"
+	    format_below_threshold = " Warning: %avail"
+}
+
+# миниторинг оперативной памяти
+memory {
+    # доступные переменные:
+    # %total, percentage_total
+    # %used, percentage_used
+    # %free, percentage_free
+    # %available, percentage_available
+    # %shared, percentage_shared
+    format = "[󰘚 %used]"
+
+    # порог, при котором вывод окрасится в
+    # желтый (degraded) или красный (critical)
+    # а формат вывода изменится на format_degraded
+    threshold_degraded = "1G"
+    threshold_critical = "200M"
+    format_degraded = "MEMORY < %available"
+}
+
+
+# использование центрального процессора
+cpu_usage {
+    # %usage - процентное использование ЦП
+    # %cpu<N> - начиная с %cpu0 и далее показывает использование ядер
+    format = "[ %usage]"
+
+    # доступны параметры:
+    # degraded_threshold, окрас в желтый, по умолчанию 90
+    # max_threshold, окрас в красный, по умолчанию 95
+    # и кастомные форматы для них
+    # format_above_degraded_threshold и format_above_threshold
+}
+
+# вывод даты и времени по заданному формату
+tztime local {
+    format = "[ %d %b][ %H:%M]"
+}

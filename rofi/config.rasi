@@ -1,0 +1,13 @@
+
+//@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+
+//@theme "/usr/share/rofi/themes/dmenu.rasi"
+
+@theme "/usr/share/rofi/themes/android_notification.rasi"
+
+configuration {
+    modi: "drun,run";
+    font: "JetBrainsMono Nerd Font 12";
+    show-icons: true;    /* Вот эта строка самая важная! */
+    icon-theme: "Tela circle"; /* Опционально, но желательно */
+}
