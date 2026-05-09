@@ -1,5 +1,5 @@
-!(screen.png)
-!(screen2.png)
+![Workspace](screen.png)
+![Workspace 2](screen2.png)
 Всем привет это мои ДОТЫ2
 Скачиваете дистрибутив и оттуда устанавливаете i3wm(я через CachyOS устанавливаю чистую i3 с ядрами от Cachy)
 Клонируете git clone https://github.com/Cixian227/I3WM-MY-DOTS-
