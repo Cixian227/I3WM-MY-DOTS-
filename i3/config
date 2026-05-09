@@ -1,4 +1,5 @@
 set $mod Mod4
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -132,13 +133,14 @@ mode "resize" {
 
 #Программы
 bindsym $mod+p exec --no-startup-id thunar
-bindsym $mod+g exec --no-startup-id librewolf
+bindsym $mod+g exec --no-startup-id google-chrome-stable
 bindsym $mod+z exec --no-startup-id resources
 
 #Отступы
 for_window [class="^.*"] border pixel 3
 gaps inner 3
 gaps outer 3
+gaps top 45
 
 #Обводка вокруг плавающих окон
 title_align center
@@ -161,6 +163,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Принудительно убираем рамки и делаем игру полноэкранной
 #for_window [class="cs2"] border none, floating disable
+for_window [class="gamescope"] floating enable, border none, focus
 
 #Mem reduct linux
 bindsym $mod+Shift+d exec alacritty -e bash -c "sync && echo 3 | sudo tee /proc/sys/vm/drop_caches"

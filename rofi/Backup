@@ -13,6 +13,13 @@ configuration {
 }
 
 
+window {    
+    border-radius:    12px; 
+    border:           2px;
+    border-color:     @foreground;
+    background-color: @background;
+    padding:          5;
+}
 
 listview {
     enabled:      true;
