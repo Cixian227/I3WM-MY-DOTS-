@@ -65,6 +65,7 @@ foomatic-db-nonfree-ppds
 foomatic-db-ppds
 fsarchiver
 gamemode
+gamescope
 geeqie
 ghostscript
 git
@@ -101,7 +102,6 @@ libappindicator
 libdvdcss
 libgsf
 libopenraw
-librewolf-bin
 libva-nvidia-driver
 linux-cachyos
 linux-cachyos-headers
@@ -177,6 +177,7 @@ ripgrep
 rofi
 rsync
 s-nail
+scrot
 sg3_utils
 shelly
 simple-scan
@@ -224,4 +225,3 @@ xorg-xev
 xorg-xinit
 xorg-xrandr
 yay
-zathura
